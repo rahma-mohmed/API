@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\DotNet\\API\\API Proj\\WebAPI2\\WebAPI2\\wwwroot\\page1.html",
+      "PackagePath": "staticwebassets\\page1.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebAPI2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebAPI2.props",
+      "PackagePath": "build\\WebAPI2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebAPI2.props",
+      "PackagePath": "buildMultiTargeting\\WebAPI2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebAPI2.props",
+      "PackagePath": "buildTransitive\\WebAPI2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

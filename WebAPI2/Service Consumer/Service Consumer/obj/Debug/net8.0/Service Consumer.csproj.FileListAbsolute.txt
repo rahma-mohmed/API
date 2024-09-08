@@ -1,0 +1,14 @@
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\bin\Debug\net8.0\Service Consumer.exe
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\bin\Debug\net8.0\Service Consumer.deps.json
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\bin\Debug\net8.0\Service Consumer.runtimeconfig.json
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\bin\Debug\net8.0\Service Consumer.dll
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\bin\Debug\net8.0\Service Consumer.pdb
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.AssemblyInfoInputs.cache
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.AssemblyInfo.cs
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.csproj.CoreCompileInputs.cache
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.dll
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\refint\Service Consumer.dll
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.pdb
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\Service Consumer.genruntimeconfig.cache
+D:\DotNet\API\API Proj\WebAPI2\Service Consumer\Service Consumer\obj\Debug\net8.0\ref\Service Consumer.dll

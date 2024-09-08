@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "TKcmEQ8x3teAjcRoBvfVdR4DDxO+YPyUC6Zwi7JcCuU=",
+  "Source": "WebAPI2",
+  "BasePath": "_content/WebAPI2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebAPI2\\wwwroot",
+      "Source": "WebAPI2",
+      "ContentRoot": "D:\\DotNet\\API\\API Proj\\WebAPI2\\WebAPI2\\wwwroot\\",
+      "BasePath": "_content/WebAPI2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
