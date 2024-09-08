@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.IRepository;
 using WebAPI.Models;
@@ -6,6 +7,7 @@ using WebAPI.Repository;
 
 namespace WebAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class DepartmentController : ControllerBase
@@ -17,9 +19,11 @@ namespace WebAPI.Controllers
         {
             context = _context;
             deptRepo = _dept;
-        } 
+        }
 
-        [HttpGet]   
+        
+        [HttpGet]
+        [Authorize]
         public IActionResult GetAllDept()
         {
             List<Department> DeptList = deptRepo.GetAll();
@@ -34,13 +38,13 @@ namespace WebAPI.Controllers
             return Ok(dept);
         }
 
-        /*[HttpPost]
-        public IActionR esult AddDept(Department dept)
+        [HttpPost]
+        public IActionResult AddDept(Department dept)
         {
             deptRepo.Create(dept);
             //return Created($"http://localhost:44314/api/Department/{dept.Id}",dept);
             return CreatedAtAction("GetDept", new { id = dept.Id }, dept);
-        }*/
+        }
 
         [HttpPut("{ID:int}")]
         public IActionResult UpdateDept(int ID,Department department)

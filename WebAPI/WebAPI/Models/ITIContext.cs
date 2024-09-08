@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Models
 {
-    public class ITIContext : DbContext
+    public class ITIContext : IdentityDbContext<User>
     {
         public DbSet<Department> Department { get; set; }
 
