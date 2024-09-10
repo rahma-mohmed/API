@@ -4,10 +4,10 @@ namespace WebAPI2.IRepository
 {
     public interface IProductRepo
     {
-        public List<Product> GetProducts();
-        public Product GetProductById(int id);
-        public void Create(Product product);
-        public void Update(int Id , Product product);
-        public void Delete(int id);
+        public Task<IEnumerable<Product>> GetProductsAsync();
+        public Task<Product> GetProductByIdAsync(int id);
+        public Task CreateAsync(Product product);
+        public Task UpdateAsync(int Id , Product product);
+        public Task DeleteAsync(int id);
     }
 }

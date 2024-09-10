@@ -14,37 +14,37 @@ namespace WebAPI2.Repository
             context = _context;
         }
 
-        public void Create(Category category)
+        public async Task CreateAsync(Category category)
         {
-            context.Categorys.Add(category);
-            context.SaveChanges();
+            await context.Categorys.AddAsync(category);
+            await context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            Category category = context.Categorys.SingleOrDefault(p => p.Id == id);
+            Category category = await context.Categorys.SingleOrDefaultAsync(p => p.Id == id);
             context.Categorys.Remove(category);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public Category GetCategoryById(int id)
+        public async Task<Category> GetCategoryByIdAsync(int id)
         {
-            Category category = context.Categorys.SingleOrDefault(x => x.Id == id);
+            Category category = await context.Categorys.SingleOrDefaultAsync(x => x.Id == id);
             return category;
         }
 
-        public List<Category> GetCategory()
+        public async Task<IEnumerable<Category>> GetCategoryAsync()
         {
-            List<Category> categories = context.Categorys.ToList();
+            IEnumerable<Category> categories = await context.Categorys.ToListAsync();
             return categories;
         }
 
-        public void Update(int Id, Category category)
+        public async Task UpdateAsync(int Id, Category category)
         {
-            Category categoryFromDB = context.Categorys.SingleOrDefault(x => x.Id == Id);
+            Category categoryFromDB = await context.Categorys.SingleOrDefaultAsync(x => x.Id == Id);
             categoryFromDB.Name = category.Name;
             categoryFromDB.Products = category.Products;
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }

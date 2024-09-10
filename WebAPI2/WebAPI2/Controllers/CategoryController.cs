@@ -5,6 +5,7 @@ using WebAPI2.IRepository;
 using WebAPI2.Model;
 using WebAPI2.DTO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI2.Controllers
 {
@@ -37,37 +38,48 @@ namespace WebAPI2.Controllers
             return result;
         }
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            List<Category> categorylist = categoryRepo.GetCategory();
+            IEnumerable<Category> categorylist = await categoryRepo.GetCategoryAsync();
             return Ok(categorylist);
         }
 
         [HttpGet("{id:int}")]
-        public ActionResult GetById(int id)
+        public async Task<ActionResult> GetById(int id)
         {
-            Category category = categoryRepo.GetCategoryById(id);
+            Category category = await categoryRepo.GetCategoryByIdAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
             return Ok(category);
         }
 
         [HttpPost]
-        public IActionResult Create(Category category)
+        public async Task<IActionResult> Create(Category category)
         {
-            categoryRepo.Create(category);
+            await categoryRepo.CreateAsync(category);
             return CreatedAtAction("GetById", new { id = category.Id }, category);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(int id, Category category)
+        [Authorize]
+        public async Task<IActionResult> Edit(int id, Category category)
         {
-            categoryRepo.Update(id, category);
+            await categoryRepo.UpdateAsync(id, category);
             return NoContent();
         }
 
-        [HttpGet(@"Delete/{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
         {
-            categoryRepo.Delete(id);
+            var category = await categoryRepo.GetCategoryByIdAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            await categoryRepo.DeleteAsync(id);
             return NoContent();
         }
     }

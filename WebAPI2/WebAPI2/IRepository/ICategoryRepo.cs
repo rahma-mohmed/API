@@ -4,10 +4,10 @@ namespace WebAPI2.IRepository
 {
     public interface ICategoryRepo
     {
-        public List<Category> GetCategory();
-        public Category GetCategoryById(int id);
-        public void Create(Category category);
-        public void Update(int Id, Category category);
-        public void Delete(int id);
+        public Task<IEnumerable<Category>> GetCategoryAsync();
+        public Task<Category> GetCategoryByIdAsync(int id);
+        public Task CreateAsync(Category category);
+        public Task UpdateAsync(int Id, Category category);
+        public Task DeleteAsync(int id);
     }
 }

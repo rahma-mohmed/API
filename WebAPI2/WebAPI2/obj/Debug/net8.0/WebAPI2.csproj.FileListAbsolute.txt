@@ -135,3 +135,11 @@ D:\DotNet\API\API Proj\WebAPI2\WebAPI2\obj\Debug\net8.0\WebAPI2.pdb
 D:\DotNet\API\API Proj\WebAPI2\WebAPI2\obj\Debug\net8.0\WebAPI2.genruntimeconfig.cache
 D:\DotNet\API\API Proj\WebAPI2\WebAPI2\obj\Debug\net8.0\ref\WebAPI2.dll
 D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\WebAPI2.staticwebassets.runtime.json
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\obj\Debug\net8.0\WebAPI2.sourcelink.json
+D:\DotNet\API\API Proj\WebAPI2\WebAPI2\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

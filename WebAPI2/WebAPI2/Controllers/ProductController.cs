@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI2.Data;
 using WebAPI2.DTO;
@@ -21,15 +22,15 @@ namespace WebAPI2.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<ActionResult> GetAll()
         {
-            List<Product> prodlist =productRepo.GetProducts();
+            IEnumerable<Product> prodlist = await productRepo.GetProductsAsync();
             return Ok(prodlist);
         }
 
         [HttpGet("{id:int}")]   
-        public ActionResult GetById(int id) {
-            Product prod = productRepo.GetProductById(id);
+        public async Task<ActionResult> GetById(int id) {
+            Product prod = await productRepo.GetProductByIdAsync(id);
             GeneralResponse generalResponse = new GeneralResponse();    
             if (prod != null) {
                 generalResponse.Success = true;
@@ -44,22 +45,54 @@ namespace WebAPI2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product){
-            productRepo.Create(product);
+        [Authorize("Admin")]
+        public async Task<ActionResult> Create(Product product){
+            await productRepo.CreateAsync(product);
             return CreatedAtAction("GetById" , new {id = product.Id} , product);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(int id ,  Product product) {
-            productRepo.Update(id, product);
+        [Authorize("Admin")]
+        public async Task<ActionResult> Edit(int id ,  Product product) {
+            await productRepo.UpdateAsync(id, product);
             return NoContent();
         }
 
-        [HttpGet(@"Delete/{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        [Authorize("Admin")]
+        public async Task<ActionResult> Delete(int id)
         {
-            productRepo.Delete(id);
+            await productRepo.DeleteAsync(id);
             return NoContent();
+        }
+
+        [HttpPost("search")]
+        public async Task<IActionResult> SearchProducts(ProductDTO productFromReq)
+        {
+            var products = await productRepo.GetProductsAsync();
+
+            if (!string.IsNullOrEmpty(productFromReq.keyword))
+            {
+                products = products.Where(p => p.Name.Contains(productFromReq.keyword , StringComparison.OrdinalIgnoreCase) 
+                || p.Description.Contains(productFromReq.keyword , StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (!string.IsNullOrEmpty(productFromReq.category))
+            {
+                products = products.Where(p => p.Category.Name.Equals(productFromReq.category));
+            }
+
+            if (productFromReq.minPrice > 0)
+            {
+                products = products.Where(p => p.Price >= productFromReq.minPrice.Value);   
+            }
+
+            if(productFromReq.maxPrice > 0)
+            {
+                products = products.Where(p => p.Price <= productFromReq.maxPrice.Value);
+            }
+
+            return Ok(products);
         }
     }
 }

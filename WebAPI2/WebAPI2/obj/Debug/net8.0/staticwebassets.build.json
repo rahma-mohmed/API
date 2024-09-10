@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "Hash": "TKcmEQ8x3teAjcRoBvfVdR4DDxO+YPyUC6Zwi7JcCuU=",
-  "Source": "WebAPI2",
-  "BasePath": "_content/WebAPI2",
+  "Hash": "z45hUxkqMGMyZ1tPqzIKVOCzYsz2D7EQEqXHqBjtaeg=",
+  "Source": "Online Store API",
+  "BasePath": "_content/Online Store API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "WebAPI2\\wwwroot",
-      "Source": "WebAPI2",
+      "Name": "Online Store API\\wwwroot",
+      "Source": "Online Store API",
       "ContentRoot": "D:\\DotNet\\API\\API Proj\\WebAPI2\\WebAPI2\\wwwroot\\",
-      "BasePath": "_content/WebAPI2",
+      "BasePath": "_content/Online Store API",
       "Pattern": "**"
     }
   ],

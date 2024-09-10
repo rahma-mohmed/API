@@ -1,4 +1,5 @@
-﻿using WebAPI2.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using WebAPI2.Data;
 using WebAPI2.IRepository;
 using WebAPI2.Model;
 
@@ -13,39 +14,39 @@ namespace WebAPI2.Repository
             context = _context;
         }
 
-        public void Create(Product product)
+        public async Task CreateAsync(Product product)
         {
-            context.Products.Add(product);
-            context.SaveChanges();
+            await context.Products.AddAsync(product);
+            await context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            Product prod = context.Products.SingleOrDefault(p => p.Id == id);
+            Product prod = await context.Products.SingleOrDefaultAsync(p => p.Id == id);
             context.Products.Remove(prod);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public Product GetProductById(int id)
+        public async Task<Product> GetProductByIdAsync(int id)
         {
-            Product product = context.Products.SingleOrDefault(x => x.Id == id);
+            Product product = await context.Products.SingleOrDefaultAsync(x => x.Id == id);
             return product;
         }
 
-        public List<Product> GetProducts()
+        public async Task<IEnumerable<Product>> GetProductsAsync()
         {
-            List<Product> products = context.Products.ToList();
+            IEnumerable<Product> products = await context.Products.Include(p => p.Category).ToListAsync();
             return products;
         }
 
-        public void Update(int Id, Product product)
+        public async Task UpdateAsync(int Id, Product product)
         {
-            Product productFromDB = context.Products.SingleOrDefault(x => x.Id == Id);
+            Product productFromDB = await context.Products.SingleOrDefaultAsync(x => x.Id == Id);
             productFromDB.Name = product.Name;
             productFromDB.Description = product.Description;
             productFromDB.Price = product.Price;
             productFromDB.Category = product.Category;
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
